@@ -3,175 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epsilon | The Hub</title>
+    <title>ZERAH | Aesthetic Shopping</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon"  href="./epsilon logo.png">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" href="./zerah logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
-            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fff5f7;
         }
-
-        .purple-glow {
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+        .brand-font {
+            font-family: 'Playfair Display', serif;
         }
-
-        .card-gradient:hover {
-            background: linear-gradient(145deg, #121212 0%, #1a1025 100%);
-            border-color: rgba(168, 85, 247, 0.5);
-            transform: translateY(-5px);
-        }
-
         .glass {
-            background: rgba(18, 18, 18, 0.7);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-
-        .bg-mesh {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(273, 67%, 15%, 1) 0, transparent 50%), 
-                radial-gradient(at 100% 100%, hsla(273, 67%, 10%, 1) 0, transparent 50%);
+        .cute-card {
+            transition: transform 0.3s ease;
+        }
+        .cute-card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center py-16 px-6">
-    <div class="bg-mesh"></div>
+<body class="text-gray-800">
 
-    <!-- Header Section -->
-    <header class="text-center mb-16 space-y-4">
-        <h1 class="text-6xl font-extrabold tracking-tighter italic">
-            EPSILON<span class="text-purple-500">.</span>
-        </h1>
-        <p class="text-gray-400 font-light tracking-widest uppercase text-sm">Next Gen Digital Ecosystem</p>
-    </header>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass px-6 py-4 flex justify-between items-center">
+        <h1 class="brand-font text-3xl italic text-pink-500">Zerah</h1>
+        <div class="flex gap-6 items-center">
+            <button onclick="showPage('shop')" class="hover:text-pink-500 transition font-semibold">Shop</button>
+            <button onclick="showPage('admin-login')" id="admin-nav-btn" class="bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-pink-200 transition">Admin Panel</button>
+            <button onclick="logout()" id="logout-btn" class="hidden text-red-500 font-bold">Logout</button>
+        </div>
+    </nav>
 
-    <!-- Main Grid -->
-    <div class="max-w-6xl w-full space-y-20">
-        
-        <!-- Primary Ecosystem -->
-        <section>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Epsilon Aproxi -->
-                <a href="https://epsilonneon-sketch.github.io/epsilon-aproxi-v2/" class="group">
-                    <div class="glass p-8 rounded-3xl transition-all duration-300 card-gradient border border-white/5 h-full flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-purple-600/20 rounded-2xl flex items-center justify-center mb-6 text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                                <i data-lucide="database"></i>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-2">Epsilon Aproxi</h2>
-                            <p class="text-gray-400 text-sm leading-relaxed">High-performance BMS (Business Management System) built for scale and speed.</p>
-                        </div>
-                        <div class="mt-8 flex items-center text-purple-400 font-semibold text-sm group-hover:translate-x-2 transition-transform">
-                            Launch System <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                        </div>
-                    </div>
-                </a>
+    <!-- SHOP PAGE -->
+    <main id="shop-page" class="max-w-6xl mx-auto p-6">
+        <header class="text-center my-12">
+            <h2 class="text-4xl font-bold mb-2">Curated by Zuena, Koki, Jasmine & Lisa</h2>
+            <p class="text-gray-500">Only the cutest picks for the besties.</p>
+        </header>
 
-                <!-- Epsilon Heckle -->
-                <a href="https://epsilonneon-sketch.github.io/epsilon-heckle-v1/" class="group">
-                    <div class="glass p-8 rounded-3xl transition-all duration-300 card-gradient border border-white/5 h-full flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-purple-600/20 rounded-2xl flex items-center justify-center mb-6 text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                                <i data-lucide="gamepad-2"></i>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-2">Epsilon Heckle</h2>
-                            <p class="text-gray-400 text-sm leading-relaxed">The ultimate gaming destination. Competitive, fast, and optimized for performance.</p>
-                        </div>
-                        <div class="mt-8 flex items-center text-purple-400 font-semibold text-sm group-hover:translate-x-2 transition-transform">
-                            Enter Arena <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                        </div>
-                    </div>
-                </a>
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Products injected here -->
+        </div>
+    </main>
 
-                <!-- Epsilon Editz -->
-                <a href="https://epsilonneon-sketch.github.io/epsilon-editz-v2/" class="group">
-                    <div class="glass p-8 rounded-3xl transition-all duration-300 card-gradient border border-white/5 h-full flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-purple-600/20 rounded-2xl flex items-center justify-center mb-6 text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                                <i data-lucide="clapperboard"></i>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-2">Epsilon Editz</h2>
-                            <p class="text-gray-400 text-sm leading-relaxed">Professional-grade editing tools and creative resources for modern creators.</p>
-                        </div>
-                        <div class="mt-8 flex items-center text-purple-400 font-semibold text-sm group-hover:translate-x-2 transition-transform">
-                            Open Studio <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                        </div>
-                    </div>
-                </a>
+    <!-- ADMIN LOGIN PAGE -->
+    <section id="admin-login-page" class="hidden max-w-md mx-auto mt-20 p-8 bg-white rounded-3xl shadow-xl">
+        <h2 class="text-2xl font-bold mb-6 text-center">Admin Access</h2>
+        <input type="password" id="admin-pass" placeholder="Enter Password" class="w-full p-3 border rounded-xl mb-4 focus:ring-2 focus:ring-pink-300 outline-none">
+        <button onclick="handleLogin()" class="w-full bg-pink-500 text-white py-3 rounded-xl font-bold hover:bg-pink-600">Enter Dashboard</button>
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section id="admin-dashboard" class="hidden max-w-6xl mx-auto p-6">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold">Admin Dashboard</h2>
+            <div class="flex gap-4">
+                <button onclick="switchAdminTab('products')" class="px-4 py-2 bg-pink-500 text-white rounded-lg">Manage Products</button>
+                <button onclick="switchAdminTab('orders')" class="px-4 py-2 bg-gray-200 rounded-lg">View Orders</button>
             </div>
-        </section>
+        </div>
 
-        <!-- Partners Section -->
-        <section class="space-y-8">
-            <div class="flex items-center gap-4">
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/30"></div>
-                <h3 class="text-gray-500 uppercase tracking-[0.3em] text-xs font-bold">Strategic Partners</h3>
-                <div class="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/30"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- NTK Services -->
-                <a href="https://epsilonneon-sketch.github.io/NTK-MOVERS-AND-SERVICES/" class="group">
-                    <div class="glass p-8 rounded-3xl transition-all duration-300 card-gradient border border-white/5 h-full flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                <i data-lucide="briefcase"></i>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-2">NTK Services</h2>
-                            <p class="text-gray-400 text-sm leading-relaxed">Premium movers and professional logistics services delivered with precision.</p>
-                        </div>
-                        <div class="mt-8 flex items-center text-blue-400 font-semibold text-sm group-hover:translate-x-2 transition-transform">
-                            View Services <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
-                        </div>
-                    </div>
-                </a>
-                <!--Zerah-->
-                 <a href="https://epsilonneon-sketch.github.io/zerah-v1/" class="group">
-                    <div class="glass p-8 rounded-3xl transition-all duration-300 card-gradient border border-white/5 h-full flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                <i data-lucide="sparkles"></i>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-2">Zerah</h2>
-                            <p class="text-gray-400 text-sm leading-relaxed">Premium stationary and clothing items.</p>
-                        </div>
-                        <div class="mt-8 flex items-center text-blue-400 font-semibold text-sm group-hover:translate-x-2 transition-transform">
-                            View Services <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
-                        </div>
-                    </div>
-                </a>
-                
-                <!-- Placeholder for future partners (Empty Glass Card) -->
-                <div class="glass p-8 rounded-3xl border border-dashed border-white/10 flex items-center justify-center text-gray-600 italic text-sm">
-                    New Partners Coming Soon...
+        <!-- Product Management -->
+        <div id="admin-products-tab">
+            <div class="bg-white p-6 rounded-3xl shadow-sm mb-8">
+                <h3 class="text-xl font-bold mb-4">Post New Product</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="p-name" placeholder="Product Name" class="p-3 border rounded-xl">
+                    <input type="number" id="p-price" placeholder="Price ($)" class="p-3 border rounded-xl">
+                    <input type="text" id="p-eta" placeholder="Arrival Time (e.g. 3-5 days)" class="p-3 border rounded-xl">
+                    <input type="file" id="p-images" multiple accept="image/*" class="p-3 border rounded-xl">
+                    <textarea id="p-desc" placeholder="Description" class="p-3 border rounded-xl md:col-span-2"></textarea>
+                    <button onclick="addProduct()" class="md:col-span-2 bg-black text-white py-3 rounded-xl font-bold">Upload Product</button>
                 </div>
             </div>
-        </section>
+            <div id="admin-product-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Admin view of products -->
+            </div>
+        </div>
 
+        <!-- Orders Management -->
+        <div id="admin-orders-tab" class="hidden">
+            <h3 class="text-xl font-bold mb-4">Customer Orders</h3>
+            <div id="orders-list" class="space-y-4">
+                <!-- Orders injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER MODAL -->
+    <div id="order-modal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-[100]">
+        <div class="bg-white rounded-3xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto">
+            <h3 class="text-2xl font-bold mb-4">Complete Your Order</h3>
+            <p id="modal-product-name" class="text-pink-500 font-bold mb-6"></p>
+            
+            <form id="order-form" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="o-name" placeholder="Your Name" required class="p-3 border rounded-xl">
+                    <input type="number" id="o-age" placeholder="Age" required class="p-3 border rounded-xl">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <select id="o-grade" class="p-3 border rounded-xl">
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Grade 8</option>
+                        <option value="9">Grade 9</option>
+                    </select>
+                    <select id="o-class" class="p-3 border rounded-xl">
+                        <option value="North">North</option>
+                        <option value="South">South</option>
+                        <option value="East">East</option>
+                        <option value="West">West</option>
+                    </select>
+                </div>
+                <input type="email" id="o-email" placeholder="Email Address" required class="p-3 border rounded-xl w-full">
+                <input type="tel" id="o-number" placeholder="Phone Number" required class="p-3 border rounded-xl w-full">
+                <textarea id="o-msg" placeholder="Small message..." class="p-3 border rounded-xl w-full"></textarea>
+                
+                <div class="flex gap-4 pt-4">
+                    <button type="button" onclick="closeOrderModal()" class="flex-1 py-3 border rounded-xl">Cancel</button>
+                    <button type="submit" class="flex-1 py-3 bg-pink-500 text-white rounded-xl font-bold">Place Order</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-20 text-gray-600 text-xs flex gap-6">
-        <p>&copy; 2024 EPSILON LABS</p>
-        <a href="#" class="hover:text-purple-400 transition-colors">TERMS</a>
-        <a href="#" class="hover:text-purple-400 transition-colors">PRIVACY</a>
-    </footer>
+    <!-- UI NOTIFICATION -->
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-3 rounded-full opacity-0 transition-opacity pointer-events-none z-[200]"></div>
 
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        // State Management
+        let products = JSON.parse(localStorage.getItem('zerah_products')) || [];
+        let orders = JSON.parse(localStorage.getItem('zerah_orders')) || [];
+        let currentOrderProduct = null;
+        let isAdmin = false;
+
+        // Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('main, section').forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId + '-page')?.classList.remove('hidden');
+            if(pageId === 'admin') document.getElementById('admin-dashboard').classList.remove('hidden');
+            
+            if(pageId === 'shop') renderShop();
+            if(pageId === 'admin') renderAdmin();
+        }
+
+        // Notifications
+        function notify(msg) {
+            const t = document.getElementById('toast');
+            t.innerText = msg;
+            t.classList.remove('opacity-0');
+            setTimeout(() => t.classList.add('opacity-0'), 3000);
+        }
+
+        // Admin Logic
+        function handleLogin() {
+            const pass = document.getElementById('admin-pass').value;
+            if(pass === '12345-z') {
+                isAdmin = true;
+                localStorage.setItem('zerah_admin', 'true');
+                document.getElementById('logout-btn').classList.remove('hidden');
+                document.getElementById('admin-nav-btn').classList.add('hidden');
+                showPage('admin');
+                notify("Welcome back, Boss!");
+            } else {
+                notify("Wrong password, bestie. Try again.");
+            }
+        }
+
+        function logout() {
+            isAdmin = false;
+            localStorage.removeItem('zerah_admin');
+            document.getElementById('logout-btn').classList.add('hidden');
+            document.getElementById('admin-nav-btn').classList.remove('hidden');
+            showPage('shop');
+        }
+
+        function switchAdminTab(tab) {
+            if(tab === 'products') {
+                document.getElementById('admin-products-tab').classList.remove('hidden');
+                document.getElementById('admin-orders-tab').classList.add('hidden');
+            } else {
+                document.getElementById('admin-products-tab').classList.add('hidden');
+                document.getElementById('admin-orders-tab').classList.remove('hidden');
+                renderOrders();
+            }
+        }
+
+        // Product Logic
+        async function addProduct() {
+            const name = document.getElementById('p-name').value;
+            const price = document.getElementById('p-price').value;
+            const eta = document.getElementById('p-eta').value;
+            const desc = document.getElementById('p-desc').value;
+            const fileInput = document.getElementById('p-images');
+
+            if(!name || !price || fileInput.files.length === 0) return notify("Fill everything in!");
+
+            const images = [];
+            for(let file of fileInput.files) {
+                const reader = new FileReader();
+                const promise = new Promise(resolve => {
+                    reader.onload = e => resolve(e.target.result);
+                });
+                reader.readAsDataURL(file);
+                images.push(await promise);
+            }
+
+            const newProduct = {
+                id: Date.now(),
+                name, price, eta, desc, images
+            };
+
+            products.push(newProduct);
+            localStorage.setItem('zerah_products', JSON.stringify(products));
+            notify("Product listed! Slay.");
+            renderAdmin();
+            // Reset fields
+            document.querySelectorAll('#admin-products-tab input, #admin-products-tab textarea').forEach(i => i.value = '');
+        }
+
+        function deleteProduct(id) {
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('zerah_products', JSON.stringify(products));
+            renderAdmin();
+        }
+
+        // Rendering
+        function renderShop() {
+            const grid = document.getElementById('product-grid');
+            if(products.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-gray-400 py-10">No drops yet. Stay tuned!</p>`;
+                return;
+            }
+
+            grid.innerHTML = products.map(p => `
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm cute-card">
+                    <div class="h-64 bg-gray-100 overflow-hidden relative">
+                        <img src="${p.images[0]}" class="w-full h-full object-cover">
+                        ${p.images.length > 1 ? `<span class="absolute top-2 right-2 bg-white/80 text-[10px] px-2 py-1 rounded-full font-bold">+${p.images.length - 1} images</span>` : ''}
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl mb-1">${p.name}</h3>
+                        <p class="text-pink-500 font-bold mb-2">$${p.price}</p>
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">${p.desc}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] text-gray-500 italic">Arrives in ${p.eta}</span>
+                            <button onclick="openOrderModal(${p.id})" class="bg-black text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition">Order</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderAdmin() {
+            const list = document.getElementById('admin-product-list');
+            list.innerHTML = products.map(p => `
+                <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border">
+                    <img src="${p.images[0]}" class="w-16 h-16 rounded-xl object-cover">
+                    <div class="flex-1">
+                        <h4 class="font-bold">${p.name}</h4>
+                        <p class="text-xs text-gray-500">$${p.price} | ETA: ${p.eta}</p>
+                    </div>
+                    <button onclick="deleteProduct(${p.id})" class="text-red-400 hover:text-red-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderOrders() {
+            const list = document.getElementById('orders-list');
+            if(orders.length === 0) {
+                list.innerHTML = `<p class="text-center text-gray-400 py-10">No orders yet. Where's the hype?</p>`;
+                return;
+            }
+            list.innerHTML = orders.map(o => `
+                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-4 border-pink-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h4 class="font-bold text-lg">${o.productName}</h4>
+                            <p class="text-sm text-gray-500">From: <span class="text-pink-500 font-semibold">${o.name}</span> (${o.age} y/o)</p>
+                        </div>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">${o.class} - Gr ${o.grade}</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-sm text-gray-600 mb-4">
+                        <p>📧 ${o.email}</p>
+                        <p>📞 ${o.number}</p>
+                    </div>
+                    <div class="bg-pink-50 p-3 rounded-xl italic text-gray-700 text-sm">
+                        "${o.message || 'No message left.'}"
+                    </div>
+                </div>
+            `).reverse().join('');
+        }
+
+        // Modal Logic
+        function openOrderModal(productId) {
+            currentOrderProduct = products.find(p => p.id === productId);
+            document.getElementById('modal-product-name').innerText = `Ordering: ${currentOrderProduct.name}`;
+            document.getElementById('order-modal').classList.remove('hidden');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('order-modal').classList.add('hidden');
+        }
+
+        document.getElementById('order-form').onsubmit = (e) => {
+            e.preventDefault();
+            const orderData = {
+                id: Date.now(),
+                productName: currentOrderProduct.name,
+                name: document.getElementById('o-name').value,
+                age: document.getElementById('o-age').value,
+                grade: document.getElementById('o-grade').value,
+                class: document.getElementById('o-class').value,
+                email: document.getElementById('o-email').value,
+                number: document.getElementById('o-number').value,
+                message: document.getElementById('o-msg').value
+            };
+
+            orders.push(orderData);
+            localStorage.setItem('zerah_orders', JSON.stringify(orders));
+            closeOrderModal();
+            notify("Order sent! Check your email soon.");
+            e.target.reset();
+        };
+
+        // Init
+        window.onload = () => {
+            renderShop();
+            if(localStorage.getItem('zerah_admin') === 'true') {
+                isAdmin = true;
+                document.getElementById('logout-btn').classList.remove('hidden');
+                document.getElementById('admin-nav-btn').classList.add('hidden');
+            }
+        }
     </script>
 </body>
 </html>
