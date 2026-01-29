@@ -32,18 +32,20 @@
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 glass px-6 py-4 flex justify-between items-center">
-        <h1 class="brand-font text-3xl italic text-pink-500">Zerah</h1>
+        <h1 class="brand-font text-3xl italic text-pink-500 cursor-pointer" onclick="showPage('shop')">Zerah</h1>
         <div class="flex gap-6 items-center">
             <button onclick="showPage('shop')" class="hover:text-pink-500 transition font-semibold">Shop</button>
-            <button onclick="showPage('admin-login')" id="admin-nav-btn" class="bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-pink-200 transition">Admin Panel</button>
-            <button onclick="logout()" id="logout-btn" class="hidden text-red-500 font-bold">Logout</button>
+            <button onclick="showPage('settings')" id="settings-nav-btn" class="hidden hover:text-pink-500 transition font-semibold">Settings</button>
+            <button onclick="showPage('auth')" id="auth-nav-btn" class="hidden bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-pink-600 transition">Login</button>
+            <button onclick="showPage('admin-login')" id="admin-nav-btn" class="bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-pink-200 transition">Admin</button>
+            <button onclick="logout()" id="logout-btn" class="hidden text-red-500 font-bold hover:underline">Logout</button>
         </div>
     </nav>
 
     <!-- SHOP PAGE -->
     <main id="shop-page" class="max-w-6xl mx-auto p-6">
         <header class="text-center my-12">
-            <h2 class="text-4xl font-bold mb-2">Curated by Zuwena, Koki, Jasmine & Lisa</h2>
+            <h2 class="text-4xl font-bold mb-2">Curated by Zuena, Koki, Jasmine & Lisa</h2>
             <p class="text-gray-500">Only the cutest picks for the besties.</p>
         </header>
 
@@ -51,6 +53,75 @@
             <!-- Products injected here -->
         </div>
     </main>
+
+    <!-- AUTH PAGE (LOGIN/SIGNUP) -->
+    <section id="auth-page" class="max-w-md mx-auto mt-20 p-8 bg-white rounded-3xl shadow-xl">
+        <div class="flex gap-4 mb-8 border-b pb-4">
+            <button onclick="switchAuthTab('login')" id="login-tab-btn" class="flex-1 font-bold text-gray-400 pb-2">Login</button>
+            <button onclick="switchAuthTab('signup')" id="signup-tab-btn" class="flex-1 font-bold text-pink-500 border-b-2 border-pink-500 pb-2">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="hidden space-y-4">
+            <input type="email" id="login-email" placeholder="Email Address" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-300 outline-none">
+            <input type="password" id="login-pass" placeholder="Password" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-300 outline-none">
+            <button onclick="handleUserLogin()" class="w-full bg-pink-500 text-white py-3 rounded-xl font-bold hover:bg-pink-600 transition">Login</button>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signup-form" class="space-y-4">
+            <input type="text" id="signup-name" placeholder="Full Name" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-300 outline-none">
+            <input type="email" id="signup-email" placeholder="Email Address" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-300 outline-none">
+            <input type="password" id="signup-pass" placeholder="Create Password" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-300 outline-none">
+            <input type="number" id="signup-age" placeholder="Age" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-300 outline-none">
+            <input type="tel" id="signup-phone" placeholder="Phone Number" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-300 outline-none">
+            <button onclick="handleUserSignup()" class="w-full bg-pink-500 text-white py-3 rounded-xl font-bold hover:bg-pink-600 transition">Create Account</button>
+        </div>
+    </section>
+
+    <!-- SETTINGS PAGE -->
+    <section id="settings-page" class="hidden max-w-2xl mx-auto mt-20 p-8 bg-white rounded-3xl shadow-xl">
+        <h2 class="text-3xl font-bold mb-8">Account Settings</h2>
+        <div class="space-y-6">
+            <div class="flex items-center gap-4 p-4 bg-pink-50 rounded-2xl">
+                <div class="w-16 h-16 bg-pink-200 rounded-full flex items-center justify-center text-2xl font-bold text-pink-600" id="settings-avatar">U</div>
+                <div>
+                    <h3 class="font-bold text-xl" id="settings-display-name">User Name</h3>
+                    <p class="text-gray-500" id="settings-display-email">user@example.com</p>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="font-bold text-lg border-b pb-2">Personal Information</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Full Name</label>
+                        <input type="text" id="settings-name" class="w-full p-3 border rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Email (Locked)</label>
+                        <input type="email" id="settings-email" disabled class="w-full p-3 border rounded-xl bg-gray-50 text-gray-400">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Age</label>
+                        <input type="number" id="settings-age" class="w-full p-3 border rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Phone Number</label>
+                        <input type="tel" id="settings-phone" class="w-full p-3 border rounded-xl">
+                    </div>
+                </div>
+                <button onclick="updateSettings()" class="bg-black text-white px-6 py-3 rounded-xl font-bold hover:bg-pink-500 transition">Save Changes</button>
+            </div>
+
+            <div class="pt-8">
+                <button onclick="logout()" class="text-red-500 font-bold flex items-center gap-2 hover:underline">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                    Logout from device
+                </button>
+            </div>
+        </div>
+    </section>
 
     <!-- ADMIN LOGIN PAGE -->
     <section id="admin-login-page" class="hidden max-w-md mx-auto mt-20 p-8 bg-white rounded-3xl shadow-xl">
@@ -140,6 +211,8 @@
         // State Management
         let products = JSON.parse(localStorage.getItem('zerah_products')) || [];
         let orders = JSON.parse(localStorage.getItem('zerah_orders')) || [];
+        let users = JSON.parse(localStorage.getItem('zerah_users')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('zerah_current_user')) || null;
         let currentOrderProduct = null;
         let isAdmin = false;
 
@@ -151,6 +224,7 @@
             
             if(pageId === 'shop') renderShop();
             if(pageId === 'admin') renderAdmin();
+            if(pageId === 'settings') renderSettings();
         }
 
         // Notifications
@@ -161,14 +235,128 @@
             setTimeout(() => t.classList.add('opacity-0'), 3000);
         }
 
+        // Auth Logic
+        function switchAuthTab(tab) {
+            const loginBtn = document.getElementById('login-tab-btn');
+            const signupBtn = document.getElementById('signup-tab-btn');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+
+            if(tab === 'login') {
+                loginBtn.classList.add('text-pink-500', 'border-b-2', 'border-pink-500');
+                loginBtn.classList.remove('text-gray-400');
+                signupBtn.classList.remove('text-pink-500', 'border-b-2', 'border-pink-500');
+                signupBtn.classList.add('text-gray-400');
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+            } else {
+                signupBtn.classList.add('text-pink-500', 'border-b-2', 'border-pink-500');
+                signupBtn.classList.remove('text-gray-400');
+                loginBtn.classList.remove('text-pink-500', 'border-b-2', 'border-pink-500');
+                loginBtn.classList.add('text-gray-400');
+                signupForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            }
+        }
+
+        function handleUserSignup() {
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const pass = document.getElementById('signup-pass').value;
+            const age = document.getElementById('signup-age').value;
+            const phone = document.getElementById('signup-phone').value;
+
+            if(!name || !email || !pass || !age || !phone) return notify("Please fill all fields!");
+            if(users.find(u => u.email === email)) return notify("Email already exists!");
+
+            const newUser = { name, email, pass, age, phone };
+            users.push(newUser);
+            localStorage.setItem('zerah_users', JSON.stringify(users));
+            
+            notify("Account created! You can now login.");
+            switchAuthTab('login');
+        }
+
+        function handleUserLogin() {
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-pass').value;
+
+            const user = users.find(u => u.email === email && u.pass === pass);
+            if(user) {
+                currentUser = user;
+                localStorage.setItem('zerah_current_user', JSON.stringify(user));
+                updateUIState();
+                showPage('shop');
+                notify(`Welcome back, ${user.name}!`);
+            } else {
+                notify("Invalid email or password.");
+            }
+        }
+
+        function updateUIState() {
+            const authBtn = document.getElementById('auth-nav-btn');
+            const settingsBtn = document.getElementById('settings-nav-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const adminBtn = document.getElementById('admin-nav-btn');
+
+            if(currentUser) {
+                authBtn.classList.add('hidden');
+                settingsBtn.classList.remove('hidden');
+                logoutBtn.classList.remove('hidden');
+            } else {
+                authBtn.classList.remove('hidden');
+                settingsBtn.classList.add('hidden');
+                if(!isAdmin) logoutBtn.classList.add('hidden');
+            }
+
+            if(isAdmin) {
+                adminBtn.classList.add('hidden');
+                logoutBtn.classList.remove('hidden');
+            }
+        }
+
+        // Settings Logic
+        function renderSettings() {
+            if(!currentUser) return showPage('auth');
+            document.getElementById('settings-name').value = currentUser.name;
+            document.getElementById('settings-email').value = currentUser.email;
+            document.getElementById('settings-age').value = currentUser.age || '';
+            document.getElementById('settings-phone').value = currentUser.phone || '';
+            document.getElementById('settings-display-name').innerText = currentUser.name;
+            document.getElementById('settings-display-email').innerText = currentUser.email;
+            document.getElementById('settings-avatar').innerText = currentUser.name.charAt(0).toUpperCase();
+        }
+
+        function updateSettings() {
+            const newName = document.getElementById('settings-name').value;
+            const newAge = document.getElementById('settings-age').value;
+            const newPhone = document.getElementById('settings-phone').value;
+            
+            if(!newName) return notify("Name cannot be empty!");
+            if(!newAge) return notify("Age cannot be empty!");
+            if(!newPhone) return notify("Phone number cannot be empty!");
+
+            currentUser.name = newName;
+            currentUser.age = newAge;
+            currentUser.phone = newPhone;
+            
+            // Update in users array too
+            users = users.map(u => u.email === currentUser.email ? currentUser : u);
+            
+            localStorage.setItem('zerah_current_user', JSON.stringify(currentUser));
+            localStorage.setItem('zerah_users', JSON.stringify(users));
+            
+            renderSettings();
+            notify("Settings updated!");
+        }
+
         // Admin Logic
         function handleLogin() {
             const pass = document.getElementById('admin-pass').value;
             if(pass === '12345-z') {
                 isAdmin = true;
                 localStorage.setItem('zerah_admin', 'true');
-                document.getElementById('logout-btn').classList.remove('hidden');
-                document.getElementById('admin-nav-btn').classList.add('hidden');
+                updateUIState();
                 showPage('admin');
                 notify("Welcome back, Boss!");
             } else {
@@ -178,10 +366,12 @@
 
         function logout() {
             isAdmin = false;
+            currentUser = null;
             localStorage.removeItem('zerah_admin');
-            document.getElementById('logout-btn').classList.add('hidden');
-            document.getElementById('admin-nav-btn').classList.remove('hidden');
-            showPage('shop');
+            localStorage.removeItem('zerah_current_user');
+            updateUIState();
+            showPage('auth');
+            notify("Logged out. See you soon!");
         }
 
         function switchAdminTab(tab) {
@@ -307,6 +497,15 @@
         function openOrderModal(productId) {
             currentOrderProduct = products.find(p => p.id === productId);
             document.getElementById('modal-product-name').innerText = `Ordering: ${currentOrderProduct.name}`;
+            
+            // Pre-fill user data if logged in
+            if(currentUser) {
+                document.getElementById('o-name').value = currentUser.name;
+                document.getElementById('o-email').value = currentUser.email;
+                document.getElementById('o-age').value = currentUser.age || '';
+                document.getElementById('o-number').value = currentUser.phone || '';
+            }
+
             document.getElementById('order-modal').classList.remove('hidden');
         }
 
@@ -337,14 +536,23 @@
 
         // Init
         window.onload = () => {
-            renderShop();
+            // Check if admin
             if(localStorage.getItem('zerah_admin') === 'true') {
                 isAdmin = true;
-                document.getElementById('logout-btn').classList.remove('hidden');
-                document.getElementById('admin-nav-btn').classList.add('hidden');
             }
+            
+            // Check if user is logged in
+            if(currentUser) {
+                showPage('shop');
+                renderShop();
+            } else {
+                // Show auth page with signup tab as default
+                showPage('auth');
+                switchAuthTab('signup');
+            }
+            
+            updateUIState();
         }
     </script>
 </body>
 </html>
-
