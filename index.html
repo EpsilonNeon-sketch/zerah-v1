@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to ZERAH | The Aesthetic Collective</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="zerah logo.jpeg">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff5f7',
+                            100: '#ffeef2',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(236, 72, 153, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-brand-50 text-gray-900 overflow-x-hidden">
+
+    <!-- Decorative Elements -->
+    <div class="blob top-[-10%] left-[-10%] animate-float"></div>
+    <div class="blob bottom-[-10%] right-[-10%] animate-float" style="animation-delay: -3s;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-full px-8 py-3 shadow-sm">
+            <h1 class="font-serif italic text-2xl text-brand-500 font-bold tracking-tight">Zerah</h1>
+            <div class="hidden md:flex gap-8 items-center font-semibold text-sm uppercase tracking-wider">
+                <a href="#" class="hover:text-brand-500 transition">Curations</a>
+                <a href="#" class="hover:text-brand-500 transition">The Besties</a>
+                <a href="#" class="hover:text-brand-500 transition">Drop Alerts</a>
+            </div>
+            <a href="./site.html" class="bg-black text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-brand-500 transition-all transform hover:scale-105">
+                Enter Shop
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-white border border-brand-100 px-4 py-2 rounded-full mb-8 animate-fade-in-up shadow-sm">
+                <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600">New Drops Just Landed</span>
+            </div>
+            
+            <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl mb-8 animate-fade-in-up" style="animation-delay: 0.1s">
+                Your <span class="italic text-brand-500">Aesthetic</span>,<br>
+                <span class="text-gradient">Curated.</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-gray-500 text-lg md:text-xl mb-12 animate-fade-in-up" style="animation-delay: 0.2s">
+                Step into a world of hand-picked treasures curated by <span class="font-bold text-gray-800 underline decoration-brand-500">Zuena, Koki, Jasmine & Lisa</span>. Only the cutest picks for the besties.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 0.3s">
+                <a href="./site.html" class="w-full sm:w-auto bg-brand-500 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-brand-600 transition-all shadow-xl shadow-brand-500/20 flex items-center justify-center gap-2 group">
+                    Start Shopping
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition"></i>
+                </a>
+                <a href="#whats-inside" class="w-full sm:w-auto bg-white text-gray-900 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all border border-gray-100 flex items-center justify-center gap-2">
+                    What's Inside?
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curator Spotlight -->
+    <section class="py-20 px-6 bg-white/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-brand-100 rounded-full mx-auto mb-4 flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-all duration-500">
+                        <span class="font-serif text-2xl font-bold italic">Z</span>
+                    </div>
+                    <p class="font-bold">Zuena</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-tighter">Style Lead</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-brand-100 rounded-full mx-auto mb-4 flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-all duration-500">
+                        <span class="font-serif text-2xl font-bold italic">K</span>
+                    </div>
+                    <p class="font-bold">Koki</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-tighter">Vibe Manager</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-brand-100 rounded-full mx-auto mb-4 flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-all duration-500">
+                        <span class="font-serif text-2xl font-bold italic">J</span>
+                    </div>
+                    <p class="font-bold">Jasmine</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-tighter">Trend Scout</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-brand-100 rounded-full mx-auto mb-4 flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-all duration-500">
+                        <span class="font-serif text-2xl font-bold italic">L</span>
+                    </div>
+                    <p class="font-bold">Lisa</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-tighter">Aesthetic Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Inside Section -->
+    <section id="whats-inside" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="font-serif text-4xl md:text-5xl mb-4">Everything you need to <span class="italic text-brand-500">slay</span>.</h2>
+                    <p class="text-gray-500">We don't just sell products; we deliver a lifestyle carefully chosen for our community.</p>
+                </div>
+                <div class="hidden md:block">
+                    <i data-lucide="sparkles" class="w-12 h-12 text-brand-300 animate-pulse"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass p-10 rounded-[3rem] hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 group">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition">
+                        <i data-lucide="shopping-bag" class="text-brand-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Curated Shop</h3>
+                    <p class="text-gray-500 leading-relaxed">Access limited-edition drops and aesthetic essentials that you won't find anywhere else. Every item is bestie-approved.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass p-10 rounded-[3rem] hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 group">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition">
+                        <i data-lucide="user-check" class="text-brand-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Personal Profiles</h3>
+                    <p class="text-gray-500 leading-relaxed">Create your account to save your preferences, track orders, and join our inner circle for exclusive early-access drops.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass p-10 rounded-[3rem] hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 group">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition">
+                        <i data-lucide="truck" class="text-brand-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Easy Ordering</h3>
+                    <p class="text-gray-500 leading-relaxed">Simple, fast, and secure. Whether you're in Grade 6 or Grade 9, our streamlined checkout gets your picks to your door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Peek -->
+    <section class="py-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="h-64 md:h-96 rounded-[2rem] bg-gray-200 overflow-hidden transform hover:rotate-2 transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Fashion">
+                </div>
+                <div class="h-64 md:h-96 rounded-[2rem] bg-gray-200 overflow-hidden transform -translate-y-8 hover:-rotate-2 transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Aesthetic">
+                </div>
+                <div class="h-64 md:h-96 rounded-[2rem] bg-gray-200 overflow-hidden transform hover:rotate-3 transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1529139572765-39730b0ef1e1?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Style">
+                </div>
+                <div class="h-64 md:h-96 rounded-[2rem] bg-gray-200 overflow-hidden transform -translate-y-8 hover:-rotate-3 transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Vibe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer class="pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-black rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-20">
+                    <i data-lucide="heart" class="w-32 h-32 fill-current"></i>
+                </div>
+                
+                <h2 class="font-serif text-4xl md:text-6xl mb-8">Ready to elevate<br>your vibe?</h2>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="./site.html" class="bg-brand-500 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:bg-brand-600 transition-all">
+                        Shop the Drop
+                    </a>
+                    <a href="./site.html" class="bg-transparent border border-white/20 px-12 py-5 rounded-2xl font-bold text-xl hover:bg-white hover:text-black transition-all">
+                        Join the List
+                    </a>
+                </div>
+                
+                <div class="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="font-serif italic text-2xl text-brand-500">Zerah</p>
+                    <p class="text-gray-400 text-sm">© 2028 Zerah Aesthetic Collective. Curated with love.</p>
+                    <div class="flex gap-6 text-gray-400">
+                        <i data-lucide="instagram" class="w-5 h-5 cursor-pointer hover:text-brand-500 transition"></i>
+                        <i data-lucide="twitter" class="w-5 h-5 cursor-pointer hover:text-brand-500 transition"></i>
+                        <i data-lucide="camera" class="w-5 h-5 cursor-pointer hover:text-brand-500 transition"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Subtle scroll reveal effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('px-2', 'py-2');
+            } else {
+                nav.classList.remove('px-2', 'py-2');
+            }
+        });
+    </script>
+</body>
+</html>
